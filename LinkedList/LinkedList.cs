@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    public class LinkedList<T>: ICollection<T>
+    public class LinkedList<T> : ICollection<T>
     {
-        static void Main(string[] args)
-        {
-
-        }
         public LinkedListNode<T> Tail { get; private set; }
 
         public LinkedListNode<T> Head { get; private set; }
@@ -43,7 +39,7 @@ namespace LinkedList
         }
         public void AddLast(LinkedListNode<T> node)
         {
-            if(Count ==0)
+            if (Count == 0)
             {
                 Head = node;
             }
@@ -56,11 +52,11 @@ namespace LinkedList
         }
         #endregion
 
-        
+
         #region Remove
         public void RemoveFirst()
         {
-            if(Count !=0)
+            if (Count != 0)
             {
                 Head = Head.Next;
                 Count--;
@@ -73,9 +69,9 @@ namespace LinkedList
         }
         public void RemoveLast()
         {
-            if(Count != 0)
+            if (Count != 0)
             {
-                if(Count == 1)
+                if (Count == 1)
                 {
                     Head = null;
                     Tail = null;
@@ -83,7 +79,7 @@ namespace LinkedList
                 else
                 {
                     LinkedListNode<T> current = Head;
-                    while(current.Next !=Tail)
+                    while (current.Next != Tail)
                     {
                         current = current.Next;
                     }
@@ -115,9 +111,9 @@ namespace LinkedList
         public bool Contains(T item)
         {
             LinkedListNode<T> current = Head;
-            while(current.Next!=null)
+            while (current.Next != null)
             {
-                if(current.Value.Equals(item))
+                if (current.Value.Equals(item))
                 {
                     return true;
                 }
@@ -129,7 +125,7 @@ namespace LinkedList
         public void CopyTo(T[] array, int arrayIndex)
         {
             LinkedListNode<T> current = Head;
-            while(current!=null)
+            while (current != null)
             {
                 array[arrayIndex++] = current.Value;
                 current = current.Next;
@@ -153,14 +149,14 @@ namespace LinkedList
         {
             LinkedListNode<T> previous = null;
             LinkedListNode<T> current = Head;
-            while(current!=null)
+            while (current != null)
             {
-                if(current.Value.Equals(item))
+                if (current.Value.Equals(item))
                 {
-                    if(previous!=null)
+                    if (previous != null)
                     {
                         previous.Next = current.Next;
-                        if (current.Next==null)
+                        if (current.Next == null)
                         {
                             Tail = previous;
                         }
@@ -180,10 +176,11 @@ namespace LinkedList
         }
 
 
-        public bool IsReadOnly { 
-            get 
-            { 
-                return false; 
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
             }
         }
         #endregion
